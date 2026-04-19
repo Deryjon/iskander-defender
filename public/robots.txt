@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iskander-defender.uz/sitemap.xml

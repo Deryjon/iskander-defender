@@ -1,0 +1,66 @@
+
+[41m[30m ERROR [39m[49m Pre-transform error: Failed to resolve import "#app-manifest" from "node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/user/iskander-defender/node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05[39m:12:22
+[33m  10 |    }
+  11 |    if (false) {
+  12 |      manifest = import("#app-manifest");
+     |                        ^
+  13 |    } else {
+  14 |      manifest = $fetch(buildAssetsURL([36mbuilds/meta/${useRuntimeConfig().app.buildId}.json[39m), {[39m
+
+
+[41m[30m ERROR [39m[49m Pre-transform error: Failed to resolve import "#app-manifest" from "node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/user/iskander-defender/node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05[39m:12:22
+[33m  10 |    }
+  11 |    if (false) {
+  12 |      manifest = import("#app-manifest");
+     |                        ^
+  13 |    } else {
+  14 |      manifest = $fetch(buildAssetsURL([36mbuilds/meta/${useRuntimeConfig().app.buildId}.json[39m), {[39m[2m (x2)[22m
+
+
+[41m[30m ERROR [39m[49m Pre-transform error: Failed to resolve import "#app-manifest" from "node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/user/iskander-defender/node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05[39m:12:22
+[33m  10 |    }
+  11 |    if (false) {
+  12 |      manifest = import("#app-manifest");
+     |                        ^
+  13 |    } else {
+  14 |      manifest = $fetch(buildAssetsURL([36mbuilds/meta/${useRuntimeConfig().app.buildId}.json[39m), {[39m[2m (x3)[22m
+
+
+[41m[30m ERROR [39m[49m Pre-transform error: Failed to resolve import "#app-manifest" from "node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/user/iskander-defender/node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05[39m:12:22
+[33m  10 |    }
+  11 |    if (false) {
+  12 |      manifest = import("#app-manifest");
+     |                        ^
+  13 |    } else {
+  14 |      manifest = $fetch(buildAssetsURL([36mbuilds/meta/${useRuntimeConfig().app.buildId}.json[39m), {[39m[2m (x4)[22m
+
+
+[41m[30m ERROR [39m[49m Pre-transform error: Failed to resolve import "#app-manifest" from "node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/user/iskander-defender/node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05[39m:12:22
+[33m  10 |    }
+  11 |    if (false) {
+  12 |      manifest = import("#app-manifest");
+     |                        ^
+  13 |    } else {
+  14 |      manifest = $fetch(buildAssetsURL([36mbuilds/meta/${useRuntimeConfig().app.buildId}.json[39m), {[39m[2m (x5)[22m
+
+
+[41m[30m ERROR [39m[49m Pre-transform error: Failed to resolve import "#app-manifest" from "node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/user/iskander-defender/node_modules/nuxt/dist/app/composables/manifest.js?v=99754c05[39m:12:22
+[33m  10 |    }
+  11 |    if (false) {
+  12 |      manifest = import("#app-manifest");
+     |                        ^
+  13 |    } else {
+  14 |      manifest = $fetch(buildAssetsURL([36mbuilds/meta/${useRuntimeConfig().app.buildId}.json[39m), {[39m[2m (x6)[22m
+
