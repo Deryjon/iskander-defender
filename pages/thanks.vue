@@ -19,5 +19,6 @@ usePageSeo({
   title: 'Спасибо за заявку',
   description: 'Заявка отправлена в Iskander-Defender.',
   path: '/thanks',
+  robots: 'noindex, nofollow',
 })
 </script>

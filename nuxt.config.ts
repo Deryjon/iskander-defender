@@ -23,8 +23,28 @@ export default defineNuxtConfig({
   css: ['~/assets/styles/main.css'],
   app: {
     head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
       htmlAttrs: { lang: 'ru' },
       titleTemplate: '%s | Iskander-Defender',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Адвокатская фирма Iskander-Defender в Ташкенте. Гражданские, уголовные и административные дела. Юридическая помощь в Узбекистане.',
+        },
+        {
+          name: 'keywords',
+          content:
+            'адвокат Ташкент, юридические услуги Ташкент, адвокат Узбекистан, адвокатская фирма Ташкент, юридическая помощь',
+        },
+        { name: 'author', content: 'Iskander-Defender' },
+        { name: 'robots', content: 'index, follow' },
+        { property: 'og:site_name', content: 'Iskander-Defender' },
+        { property: 'og:locale', content: 'ru_RU' },
+        { property: 'og:locale:alternate', content: 'uz_UZ' },
+        { property: 'og:locale:alternate', content: 'en_US' },
+      ],
       link: [
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -53,13 +73,20 @@ export default defineNuxtConfig({
     },
     locales: [
       { code: 'ru', name: 'Русский', file: 'ru.json' },
-      { code: 'uz', name: 'O‘zbekcha', file: 'uz.json' },
+      { code: 'uz', name: "O‘zbekcha", file: 'uz.json' },
       { code: 'en', name: 'English', file: 'en.json' },
     ],
     langDir: 'locales',
     detectBrowserLanguage: false,
   },
-  sitemap: {},
+  sitemap: {
+    exclude: ['/thanks', '/privacy-policy', '/terms'],
+    defaults: {
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
+    },
+  },
   image: {
     domains: ['images.unsplash.com'],
   },

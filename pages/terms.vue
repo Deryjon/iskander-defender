@@ -17,5 +17,6 @@ usePageSeo({
   title: 'Пользовательское соглашение',
   description: 'Пользовательское соглашение сайта Iskander-Defender.',
   path: '/terms',
+  robots: 'noindex, nofollow',
 })
 </script>

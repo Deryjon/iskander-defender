@@ -18,10 +18,24 @@
 
 <script setup lang="ts">
 import { lawyers } from '~/data/team'
+import { breadcrumbSchema, personSchema } from '~/utils/schema'
+
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
 
 usePageSeo({
-  title: 'Команда',
-  description: 'Команда адвокатов и юристов Iskander-Defender: специализация, опыт, языки и направления работы.',
+  title: 'Команда адвокатов в Ташкенте — Iskander-Defender',
+  description:
+    'Команда опытных адвокатов Iskander-Defender: 35+ и 30+ лет практики. Специализация: уголовное, гражданское, административное право. Ташкент, Узбекистан.',
+  keywords:
+    'адвокат Ташкент команда, опытный адвокат Узбекистан, уголовный адвокат Ташкент, гражданский адвокат Ташкент, юрист Ташкент профессионал',
   path: '/team',
+  schema: [
+    ...lawyers.map((l) => personSchema(l)),
+    breadcrumbSchema([
+      { name: 'Главная', url: siteUrl },
+      { name: 'Команда', url: `${siteUrl}/team` },
+    ]),
+  ],
 })
 </script>

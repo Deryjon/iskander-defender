@@ -17,5 +17,6 @@ usePageSeo({
   title: 'Политика конфиденциальности',
   description: 'Политика конфиденциальности сайта Iskander-Defender.',
   path: '/privacy-policy',
+  robots: 'noindex, nofollow',
 })
 </script>

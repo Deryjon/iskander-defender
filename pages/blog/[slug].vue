@@ -31,6 +31,10 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/ru'
 import { articles } from '~/data/articles'
+import { breadcrumbSchema } from '~/utils/schema'
+
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
 
 const route = useRoute()
 const article = computed(() => articles.find((item) => item.slug === route.params.slug))
@@ -44,12 +48,50 @@ usePageSeo({
   description: article.value.excerpt,
   path: `/blog/${article.value.slug}`,
   image: article.value.cover,
-  schema: {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: article.value.title,
-    datePublished: article.value.date,
-    image: article.value.cover,
-  },
+  ogType: 'article',
+  keywords: `${article.value.topic}, адвокат Ташкент, юридическая статья Узбекистан, правовой блог Ташкент`,
+  schema: [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: article.value.title,
+      description: article.value.excerpt,
+      datePublished: article.value.date,
+      dateModified: article.value.date,
+      image: {
+        '@type': 'ImageObject',
+        url: article.value.cover,
+      },
+      author: {
+        '@type': 'Organization',
+        name: 'Iskander-Defender',
+        url: siteUrl,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Iskander-Defender',
+        url: siteUrl,
+        logo: {
+          '@type': 'ImageObject',
+          url: `${siteUrl}/favicon-16.png`,
+        },
+      },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': `${siteUrl}/blog/${article.value.slug}`,
+      },
+      articleSection: article.value.topic,
+      inLanguage: 'ru',
+      about: {
+        '@type': 'Thing',
+        name: 'Юридические услуги в Ташкенте',
+      },
+    },
+    breadcrumbSchema([
+      { name: 'Главная', url: siteUrl },
+      { name: 'Блог', url: `${siteUrl}/blog` },
+      { name: article.value.title, url: `${siteUrl}/blog/${article.value.slug}` },
+    ]),
+  ],
 })
 </script>

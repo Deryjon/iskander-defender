@@ -57,8 +57,10 @@
 <script setup lang="ts">
 import { cases } from '~/data/cases'
 import { getService, services } from '~/data/services'
-import { faqSchema } from '~/utils/schema'
+import { breadcrumbSchema, faqSchema, serviceSchema } from '~/utils/schema'
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
 const route = useRoute()
 const service = computed(() => getService(String(route.params.slug)))
 
@@ -68,11 +70,26 @@ if (!service.value) {
 
 const serviceCases = computed(() => cases.filter((item) => item.category === service.value?.key))
 
+const keywordsMap: Record<string, string> = {
+  civil: 'гражданский адвокат Ташкент, семейный спор адвокат Ташкент, взыскание долгов адвокат Узбекистан, имущественный спор юрист Ташкент, наследство адвокат Ташкент',
+  criminal: 'уголовный адвокат Ташкент, защита на следствии Ташкент, адвокат по уголовным делам Узбекистан, срочный адвокат Ташкент, защита прав обвиняемого',
+  administrative: 'административный адвокат Ташкент, обжалование штрафов Узбекистан, споры с госорганами Ташкент, административное право адвокат Ташкент',
+}
+
 usePageSeo({
-  title: service.value.title,
-  description: service.value.description,
+  title: `${service.value.title} — Адвокат в Ташкенте | Iskander-Defender`,
+  description: `${service.value.description} Iskander-Defender — адвокатская фирма в Ташкенте, Узбекистан.`,
+  keywords: keywordsMap[service.value.key] || `адвокат Ташкент, ${service.value.title.toLowerCase()}, юридические услуги Узбекистан`,
   path: service.value.href,
-  schema: faqSchema(service.value.faq),
+  schema: [
+    serviceSchema(service.value),
+    faqSchema(service.value.faq),
+    breadcrumbSchema([
+      { name: 'Главная', url: siteUrl },
+      { name: 'Услуги', url: `${siteUrl}/services` },
+      { name: service.value.title, url: `${siteUrl}${service.value.href}` },
+    ]),
+  ],
 })
 
 definePageMeta({

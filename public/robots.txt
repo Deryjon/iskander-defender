@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /thanks
+Disallow: /privacy-policy
+Disallow: /terms
 
 Sitemap: https://iskander-defender.uz/sitemap.xml
