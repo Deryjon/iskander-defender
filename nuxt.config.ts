@@ -26,6 +26,7 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'ru' },
       titleTemplate: '%s | Iskander-Defender',
       link: [
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
