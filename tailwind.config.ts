@@ -10,21 +10,21 @@ export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
-        graphite: '#171A1F',
-        charcoal: '#22262D',
-        ivory: '#F7F4EF',
-        navy: '#17263C',
-        bronze: '#B08A57',
-        steel: '#6F7783',
-        line: '#E6E1D8',
+        graphite: '#0D1B3E',
+        charcoal: '#162447',
+        ivory: '#F4F8FF',
+        navy: '#173087',
+        bronze: '#1E56D9',
+        steel: '#5A6E87',
+        line: '#D0DDF5',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui'],
         display: ['Manrope', 'Inter', 'ui-sans-serif', 'system-ui'],
       },
       boxShadow: {
-        soft: '0 18px 55px rgba(23, 26, 31, 0.10)',
-        deep: '0 24px 70px rgba(23, 26, 31, 0.28)',
+        soft: '0 18px 55px rgba(13, 27, 62, 0.10)',
+        deep: '0 24px 70px rgba(13, 27, 62, 0.22)',
       },
     },
   },

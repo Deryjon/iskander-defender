@@ -1,14 +1,14 @@
 export const contacts = {
   brand: 'Iskander-Defender',
-  phone: '+998 90 000 00 00',
-  phoneHref: 'tel:+998900000000',
+  phone: '+998 98 364 83 94',
+  phoneHref: 'tel:+998983648394',
   email: 'office@iskander-defender.uz',
-  address: 'Ташкент, деловой центр, офис Iskander-Defender',
+  address: 'г. Ташкент, ул. Алишера Навои, 5',
   schedule: 'Пн-Сб: 09:00-19:00',
   telegram: 'https://t.me/iskander_defender',
-  whatsapp: 'https://wa.me/998900000000',
+  whatsapp: 'https://wa.me/998983648394',
   mapEmbed:
-    'https://maps.google.com/maps?q=Tashkent%20Uzbekistan&t=&z=13&ie=UTF8&iwloc=&output=embed',
+    'https://maps.google.com/maps?q=Alisher+Navoi+Street+5+Tashkent+Uzbekistan&t=&z=16&ie=UTF8&iwloc=&output=embed',
 }
 
 export const navItems = [
@@ -22,8 +22,8 @@ export const navItems = [
 ]
 
 export const stats = [
-  { value: '12+', label: 'лет юридической практики' },
-  { value: '480+', label: 'сопровожденных обращений' },
+  { value: '10+', label: 'лет юридической практики' },
+  { value: '5000+', label: 'обслуженных клиентов' },
   { value: '3', label: 'ключевых направления защиты' },
   { value: '24ч', label: 'реакция по срочным делам' },
 ]

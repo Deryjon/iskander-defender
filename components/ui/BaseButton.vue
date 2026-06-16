@@ -76,10 +76,10 @@ const classes = computed(() => {
     lg: 'min-h-12 px-5 text-sm sm:min-h-14 sm:px-7 sm:text-base',
   }
   const variants = {
-    primary: 'bg-bronze text-white shadow-soft hover:bg-[#987343]',
-    secondary: 'border border-bronze/35 bg-white text-graphite hover:border-bronze hover:bg-[#FBF8F3]',
-    ghost: 'text-graphite hover:bg-white/70',
-    dark: 'bg-graphite text-white hover:bg-navy',
+    primary: 'bg-bronze text-white shadow-soft hover:bg-[#1644B0] active:scale-[0.98]',
+    secondary: 'border border-bronze/40 bg-white text-graphite hover:border-bronze hover:bg-[#EBF2FF] active:scale-[0.98]',
+    ghost: 'border border-transparent text-bronze hover:border-bronze/30 hover:bg-bronze/10',
+    dark: 'bg-graphite text-white hover:bg-navy active:scale-[0.98]',
   }
 
   return [base, sizes[props.size], variants[props.variant]].join(' ')

@@ -12,7 +12,7 @@
     <BaseInput
       :model-value="values.phone"
       label="Номер телефона"
-      placeholder="+998 90 000 00 00"
+      placeholder="+998 98 364 83 94"
       autocomplete="tel"
       :error="errors.phone"
       @update:model-value="onPhoneInput"
@@ -69,7 +69,7 @@ const consultationSchema = z.object({
   phone: z
     .string()
     .trim()
-    .regex(/^\+998\s\d{2}\s\d{3}\s\d{2}\s\d{2}$/, 'Введите номер в формате +998 90 000 00 00'),
+    .regex(/^\+998\s\d{2}\s\d{3}\s\d{2}\s\d{2}$/, 'Введите номер в формате +998 98 364 83 94'),
   caseType: z.enum(['civil', 'criminal', 'administrative']),
   message: z.string().trim().min(10, 'Кратко опишите вопрос (минимум 10 символов)'),
   consent: z.literal(true, {

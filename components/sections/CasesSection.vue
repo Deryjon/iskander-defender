@@ -18,9 +18,9 @@
               <dt class="font-semibold text-graphite">Что сделали</dt>
               <dd class="text-steel">{{ item.actions }}</dd>
             </div>
-            <div>
-              <dt class="font-semibold text-graphite">Результат</dt>
-              <dd class="text-graphite">{{ item.result }}</dd>
+            <div class="rounded-lg border border-bronze/20 bg-bronze/5 px-3 py-2.5">
+              <dt class="text-xs font-semibold uppercase tracking-widest text-bronze">Результат</dt>
+              <dd class="mt-1 font-medium text-graphite">{{ item.result }}</dd>
             </div>
           </dl>
         </BaseCard>

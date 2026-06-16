@@ -4,7 +4,7 @@
     :class="isScrolled ? 'border-white/10 bg-graphite/95 shadow-deep backdrop-blur' : 'border-transparent bg-graphite/80'"
   >
     <div class="container-page flex min-h-16 items-center justify-between gap-3 sm:min-h-20 sm:gap-4">
-      <a href="#hero" class="font-display text-lg font-extrabold tracking-wide sm:text-xl" aria-label="Iskander-Defender">
+      <a href="#hero" class="font-display text-xl font-extrabold tracking-wide sm:text-2xl" aria-label="Iskander-Defender">
         Iskander<span class="text-bronze">-Defender</span>
       </a>
 

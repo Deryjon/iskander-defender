@@ -32,7 +32,7 @@ export const landings: LandingPageContent[] = [
     stats: [
       { value: '24/7', label: 'приоритетный контакт' },
       { value: '30 мин', label: 'первичная оценка' },
-      { value: '12+', label: 'лет практики' },
+      { value: '10+', label: 'лет практики' },
     ],
     painTitle: 'Когда нельзя ждать',
     pains: [
@@ -76,7 +76,7 @@ export const landings: LandingPageContent[] = [
     image: 'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1600&q=80',
     stats: [
       { value: '3', label: 'стадии защиты' },
-      { value: '12+', label: 'лет опыта' },
+      { value: '10+', label: 'лет опыта' },
       { value: '100%', label: 'конфиденциальность' },
     ],
     painTitle: 'С какими ситуациями работаем',
@@ -126,7 +126,7 @@ export const landings: LandingPageContent[] = [
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80',
     stats: [
       { value: '6', label: 'типов споров' },
-      { value: '480+', label: 'обращений' },
+      { value: '5000+', label: 'обслуженных клиентов' },
       { value: '2-3', label: 'шага до стратегии' },
     ],
     painTitle: 'Когда нужен гражданский адвокат',

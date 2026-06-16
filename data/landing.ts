@@ -23,9 +23,9 @@ export const navigationAnchors: NavAnchor[] = [
 ]
 
 export const heroStats: HeroStat[] = [
-  { value: '12+ лет', label: 'юридической практики' },
+  { value: '10+ лет', label: 'юридической практики' },
   { value: '3', label: 'ключевых направления защиты' },
-  { value: '500+', label: 'сопровожденных дел и обращений' },
+  { value: '5000+', label: 'обслуженных клиентов' },
   { value: 'до 30 минут', label: 'на первичный ответ по заявке' },
 ]
 
@@ -135,32 +135,18 @@ export const cases: CaseItem[] = [
 
 export const team: TeamMember[] = [
   {
-    name: 'Iskanderov A.A.',
+    name: 'Юсупов Ильхомжон Кубижонович',
     position: 'Управляющий партнер',
-    specialization: 'Уголовные дела и защита бизнеса',
-    experience: '12+ лет практики',
-    image: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=960&q=80',
+    specialization: 'Уголовная защита, коммерческие и гражданские споры',
+    experience: '35+ лет практики',
+    image: '',
   },
   {
-    name: 'Karimova D.M.',
-    position: 'Старший адвокат',
-    specialization: 'Гражданские споры и судебное представительство',
-    experience: '10+ лет практики',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=960&q=80',
-  },
-  {
-    name: 'Rakhimov S.T.',
-    position: 'Адвокат',
-    specialization: 'Административные дела и споры с госорганами',
-    experience: '8+ лет практики',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=960&q=80',
-  },
-  {
-    name: 'Musaeva N.R.',
-    position: 'Юрист-консультант',
-    specialization: 'Документальная аналитика и правовая экспертиза',
-    experience: '7+ лет практики',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=960&q=80',
+    name: 'Юсупова Маргуба Муминовна',
+    position: 'Старший партнер',
+    specialization: 'Гражданское право, семейные и наследственные дела',
+    experience: '30+ лет практики',
+    image: '',
   },
 ]
 
@@ -210,12 +196,12 @@ export const faqItems: FaqItem[] = [
 ]
 
 export const contacts: ContactInfo = {
-  phone: '+998 90 000 00 00',
-  phoneHref: 'tel:+998900000000',
+  phone: '+998 98 364 83 94',
+  phoneHref: 'tel:+998983648394',
   email: 'office@iskander-defender.uz',
-  address: 'г. Ташкент, деловой центр, офис Iskander-Defender',
+  address: 'г. Ташкент, ул. Алишера Навои, 5',
   schedule: 'Пн-Сб: 09:00-19:00',
   telegram: 'https://t.me/iskander_defender',
-  whatsapp: 'https://wa.me/998900000000',
-  mapEmbed: 'https://maps.google.com/maps?q=Tashkent%20Uzbekistan&t=&z=13&ie=UTF8&iwloc=&output=embed',
+  whatsapp: 'https://wa.me/998983648394',
+  mapEmbed: 'https://maps.google.com/maps?q=Alisher+Navoi+Street+5+Tashkent+Uzbekistan&t=&z=16&ie=UTF8&iwloc=&output=embed',
 }

@@ -7,7 +7,7 @@
         text="Понятный процесс от первичного анализа до итогового результата."
         variant="light"
       />
-      <div class="mt-10 grid gap-5 lg:grid-cols-5">
+      <div class="mt-10 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         <BaseCard
           v-for="(step, index) in processSteps"
           :key="step.title"
