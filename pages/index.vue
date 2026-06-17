@@ -7,7 +7,6 @@
     <AboutSection />
     <CasesSection />
     <TeamSection />
-    <ReviewsSection />
     <FAQSection />
     <ConsultationSection />
     <ContactsSection />

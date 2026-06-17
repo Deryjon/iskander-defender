@@ -8,8 +8,8 @@
       />
       <div class="mt-10 grid gap-6 sm:grid-cols-2">
         <BaseCard v-for="member in team" :key="member.name" class="overflow-hidden p-0">
-          <div v-if="member.image" class="h-72 w-full overflow-hidden">
-            <NuxtImg :src="member.image" :alt="member.name" class="h-full w-full object-cover object-top" sizes="sm:100vw md:50vw lg:640px" />
+          <div v-if="member.image" class="h-[480px] w-full overflow-hidden">
+            <NuxtImg :src="member.image" :alt="member.name" class="h-full w-full object-cover object-top " sizes="sm:100vw md:50vw lg:640px" />
           </div>
           <div v-else class="flex h-56 w-full items-center justify-center bg-graphite/5">
             <UserRound class="h-20 w-20 text-graphite/20" />

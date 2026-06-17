@@ -1,6 +1,6 @@
 <template>
   <article class="overflow-hidden rounded-2xl border border-line bg-white shadow-soft">
-    <NuxtImg :src="lawyer.photo" :alt="lawyer.name" class="h-72 w-full object-cover" loading="lazy" />
+    <NuxtImg :src="lawyer.photo" :alt="lawyer.name" class="h-[480px] w-full object-cover " loading="lazy" />
     <div class="p-6">
       <p class="text-sm font-semibold uppercase tracking-[0.2em] text-bronze">{{ lawyer.role }}</p>
       <h3 class="mt-2 font-display text-2xl font-bold">{{ lawyer.name }}</h3>

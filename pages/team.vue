@@ -8,7 +8,7 @@
       </div>
     </section>
     <section class="section-padding bg-ivory">
-      <div class="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div class="container-page grid gap-6 md:grid-cols-2">
         <LawyerCard v-for="lawyer in lawyers" :key="lawyer.name" :lawyer="lawyer" />
       </div>
     </section>
