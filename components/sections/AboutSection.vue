@@ -1,35 +1,39 @@
-﻿<template>
-  <section class="section-padding bg-ivory" id="about">
-    <div class="container-page grid gap-10 lg:grid-cols-[1fr_0.95fr] lg:items-center">
+<template>
+  <section id="about" class="section-padding bg-ivory">
+    <div class="container-page grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
       <div>
         <SectionTitle
+          index="04"
           eyebrow="О фирме"
-          title="Опыт, дисциплина и стратегический подход в интересах клиента"
-          text="Iskander-Defender сочетает глубокую юридическую экспертизу, строгую процессную работу и уважение к задачам клиента. Мы не предлагаем шаблонных решений: каждое дело ведется по индивидуальной стратегии."
+          title="Опыт, дисциплина и стратегия в интересах клиента"
+          text="Iskander-Defender сочетает глубокую юридическую экспертизу, строгую процессную работу и уважение к задачам клиента. Мы не предлагаем шаблонных решений: каждое дело ведётся по индивидуальной стратегии."
         />
-        <p class="mt-5 max-w-2xl text-sm leading-7 text-steel sm:text-base sm:leading-8">
-          Приоритет фирмы — управляемый юридический процесс: понятные этапы, прозрачная коммуникация и защита интересов клиента на всех уровнях взаимодействия с оппонентами, госорганами и судом.
-        </p>
-        <ul class="mt-6 grid gap-3">
-          <li v-for="thesis in aboutTheses" :key="thesis" class="flex items-start gap-3 rounded-xl border border-line bg-white px-4 py-3">
-            <ShieldCheck class="mt-0.5 h-4 w-4 shrink-0 text-bronze" />
-            <span class="text-sm text-graphite">{{ thesis }}</span>
+        <ul class="mt-10 border-t border-line">
+          <li v-for="(thesis, i) in aboutTheses" :key="thesis" class="flex items-baseline gap-5 border-b border-line py-5">
+            <span class="font-display text-lg italic text-bronze">0{{ i + 1 }}</span>
+            <span class="text-[15px] font-medium text-graphite sm:text-base">{{ thesis }}</span>
           </li>
         </ul>
       </div>
-      <BaseCard class="overflow-hidden p-0">
-        <NuxtImg
-          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80"
-          alt="Интерьер статусного офиса юридической фирмы"
-          class="h-64 w-full object-cover sm:h-80 lg:h-[420px]"
-          sizes="sm:100vw md:50vw lg:540px"
-        />
-      </BaseCard>
+
+      <figure class="grain relative overflow-hidden bg-graphite p-8 text-white sm:p-12">
+        <Quote class="h-10 w-10 text-brass" stroke-width="1.25" aria-hidden="true" />
+        <blockquote class="mt-8 font-display text-[1.75rem] font-medium leading-[1.25] sm:text-4xl">
+          Приоритет фирмы — управляемый юридический процесс: понятные этапы, прозрачная коммуникация и защита интересов клиента на всех уровнях.
+        </blockquote>
+        <figcaption class="mt-10 flex items-center justify-between gap-4 border-t border-white/10 pt-6">
+          <div>
+            <p class="font-semibold">Iskander-Defender</p>
+            <p class="text-sm text-white/50">Принцип работы фирмы</p>
+          </div>
+          <p class="font-display text-4xl font-medium text-brass">с 2014</p>
+        </figcaption>
+      </figure>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ShieldCheck } from 'lucide-vue-next'
+import { Quote } from 'lucide-vue-next'
 import { aboutTheses } from '~/data/landing'
 </script>

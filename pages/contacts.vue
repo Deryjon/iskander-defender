@@ -1,11 +1,11 @@
 <template>
   <div>
-    <section class="dark-panel">
-      <div class="container-page py-20 lg:py-28">
-        <BaseBadge>Контакты</BaseBadge>
-        <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">Связаться с Iskander-Defender</h1>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Контакты"
+      title="Связаться с Iskander-Defender"
+      text="Позвоните, напишите в мессенджер или приходите в офис. Уточним задачу и предложим следующий шаг."
+      :crumbs="[{ label: 'Контакты' }]"
+    />
     <ContactSection />
     <ConsultationFormSection />
   </div>

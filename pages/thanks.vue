@@ -1,18 +1,25 @@
 <template>
-  <section class="dark-panel min-h-[70vh]">
-    <div class="container-page flex min-h-[70vh] flex-col items-start justify-center py-20">
-      <BaseBadge>Заявка принята</BaseBadge>
-      <h1 class="mt-6 max-w-3xl font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">Спасибо. Мы свяжемся с вами после обработки обращения.</h1>
-      <p class="mt-6 max-w-2xl text-xl leading-9 text-white/70">По срочному вопросу можно дополнительно позвонить или написать в мессенджер.</p>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <BaseButton href="/" size="lg" variant="secondary" icon="lucide:home">На главную</BaseButton>
-        <BaseButton :href="contacts.phoneHref" size="lg" icon="lucide:phone">Позвонить</BaseButton>
+  <section class="dark-panel grain relative overflow-hidden">
+    <div class="pointer-events-none absolute -right-40 top-0 h-[34rem] w-[34rem] rounded-full bg-brass/[0.07] blur-3xl" aria-hidden="true" />
+    <div class="container-page relative flex min-h-[75vh] flex-col items-start justify-center py-20">
+      <span class="flex h-16 w-16 items-center justify-center rounded-full border border-brass/60 text-brass">
+        <Check class="h-7 w-7" stroke-width="1.5" />
+      </span>
+      <p class="eyebrow mt-10 !text-brass">Заявка принята</p>
+      <h1 class="mt-6 max-w-3xl font-display text-[2.5rem] font-medium leading-[1.05] sm:text-6xl">
+        Спасибо. Мы свяжемся с вами <em class="text-brass">в ближайшее время</em>
+      </h1>
+      <p class="mt-6 max-w-xl text-[15px] leading-7 text-white/60 sm:text-lg sm:leading-8">По срочному вопросу можно дополнительно позвонить или написать в мессенджер.</p>
+      <div class="mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+        <BaseButton :href="contacts.phoneHref" size="lg" :icon-component="Phone">Позвонить</BaseButton>
+        <BaseButton href="/" size="lg" variant="light">На главную</BaseButton>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { Check, Phone } from 'lucide-vue-next'
 import { contacts } from '~/data/site'
 
 usePageSeo({

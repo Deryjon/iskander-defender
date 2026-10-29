@@ -1,42 +1,45 @@
 <template>
   <div>
-    <section class="dark-panel">
-      <div class="container-page py-20 lg:py-28">
-        <BaseBadge>Лендинги</BaseBadge>
-        <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">
-          Отдельные страницы под юридические обращения
-        </h1>
-        <p class="mt-6 max-w-3xl text-xl leading-9 text-white/72">
-          Пять продающих лендингов для разных сценариев: срочный адвокат, уголовная защита, гражданские споры, административные штрафы и сопровождение бизнеса.
-        </p>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Направления"
+      title="Помощь под вашу конкретную ситуацию"
+      text="Срочный адвокат, уголовная защита, гражданские споры, административные штрафы и сопровождение бизнеса."
+      :crumbs="[{ label: 'Направления' }]"
+    />
     <section class="section-padding bg-ivory">
       <div class="container-page grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <NuxtLink
           v-for="landing in landings"
           :key="landing.slug"
           :to="`/landing/${landing.slug}`"
-          class="group overflow-hidden rounded-2xl border border-line bg-white shadow-soft transition hover:-translate-y-1 hover:shadow-deep"
+          class="group flex flex-col border border-line bg-paper transition duration-500 hover:border-bronze/40 hover:shadow-soft"
         >
-          <NuxtImg :src="landing.image" :alt="landing.title" class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03]" loading="lazy" />
-          <div class="p-6">
+          <div class="aspect-[16/10] overflow-hidden bg-line">
+            <NuxtImg :src="landing.image" :alt="landing.title" class="h-full w-full object-cover grayscale-[30%] transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" loading="lazy" />
+          </div>
+          <div class="flex flex-1 flex-col p-7">
             <BaseBadge>{{ landing.badge }}</BaseBadge>
-            <h2 class="mt-4 font-display text-2xl font-bold">{{ landing.title }}</h2>
-            <p class="mt-3 leading-7 text-steel">{{ landing.subtitle }}</p>
+            <h2 class="mt-5 font-display text-2xl font-medium leading-snug transition group-hover:text-bronze">{{ landing.title }}</h2>
+            <p class="mt-3 text-[15px] leading-7 text-steel">{{ landing.subtitle }}</p>
+            <span class="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-bronze">
+              Подробнее
+              <ArrowRight class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+            </span>
           </div>
         </NuxtLink>
       </div>
     </section>
+    <ConsultationFormSection />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ArrowRight } from 'lucide-vue-next'
 import { landings } from '~/data/landings'
 
 usePageSeo({
-  title: 'Юридические лендинги',
-  description: 'Пять посадочных страниц Iskander-Defender под срочную помощь, уголовные, гражданские, административные дела и бизнес.',
+  title: 'Направления помощи',
+  description: 'Юридическая помощь Iskander-Defender: срочная помощь, уголовные, гражданские, административные дела и бизнес.',
   path: '/landing',
 })
 </script>

@@ -1,10 +1,10 @@
 <template>
   <div :class="['max-w-3xl text-mobile-safe', center ? 'mx-auto text-center' : '']">
     <p v-if="eyebrow" class="eyebrow">{{ eyebrow }}</p>
-    <h2 class="mt-3 font-display text-2xl font-bold leading-tight text-graphite sm:text-4xl lg:text-5xl">
+    <h2 class="mt-5 font-display text-[2rem] font-medium leading-[1.08] text-graphite sm:text-[2.75rem] lg:text-5xl">
       {{ title }}
     </h2>
-    <p v-if="text" class="mt-4 text-sm leading-7 text-steel sm:mt-5 sm:text-lg sm:leading-8">
+    <p v-if="text" class="mt-5 text-[15px] leading-7 text-steel sm:text-base sm:leading-8">
       {{ text }}
     </p>
   </div>

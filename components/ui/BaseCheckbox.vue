@@ -3,7 +3,7 @@
     <input
       :checked="modelValue"
       type="checkbox"
-      class="mt-1 h-4 w-4 rounded border-line text-bronze focus:ring-bronze"
+      class="mt-1 h-4 w-4 shrink-0 accent-bronze"
       @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
     >
     <span>

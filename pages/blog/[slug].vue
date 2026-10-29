@@ -1,26 +1,41 @@
 <template>
   <article v-if="article">
-    <section class="dark-panel">
-      <div class="container-page py-16 lg:py-24">
-        <BaseBadge>{{ article.topic }}</BaseBadge>
-        <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">{{ article.title }}</h1>
-        <time class="mt-6 block text-white/60" :datetime="article.date">{{ formattedDate }}</time>
-      </div>
-    </section>
-    <NuxtImg :src="article.cover" :alt="article.title" class="h-[420px] w-full object-cover" />
-    <section class="section-padding bg-white">
-      <div class="container-page grid gap-10 lg:grid-cols-[minmax(0,760px)_1fr]">
-        <div class="prose prose-lg max-w-none">
-          <p v-for="paragraph in article.body" :key="paragraph" class="leading-9 text-steel">{{ paragraph }}</p>
+    <PageHero :title="article.title" :crumbs="[{ label: 'Блог', to: '/blog' }, { label: article.topic }]">
+      <template #actions>
+        <div class="flex items-center gap-4 text-sm text-white/50">
+          <BaseBadge>{{ article.topic }}</BaseBadge>
+          <span class="h-1 w-1 rounded-full bg-white/30" aria-hidden="true" />
+          <time :datetime="article.date">{{ formattedDate }}</time>
         </div>
-        <aside class="rounded-2xl border border-line bg-ivory p-6">
-          <h2 class="font-display text-2xl font-bold">Похожие статьи</h2>
-          <div class="mt-5 grid gap-4">
-            <NuxtLink v-for="item in related" :key="item.slug" :to="`/blog/${item.slug}`" class="font-semibold hover:text-bronze">
-              {{ item.title }}
-            </NuxtLink>
+      </template>
+    </PageHero>
+    <section class="bg-paper pb-16 sm:pb-24 lg:pb-32">
+      <div class="container-page">
+        <NuxtImg :src="article.cover" :alt="article.title" class="relative -mt-px aspect-[21/9] w-full object-cover" />
+        <div class="mt-14 grid gap-14 lg:grid-cols-[minmax(0,720px)_1fr] lg:gap-20">
+          <div class="grid gap-6">
+            <p
+              v-for="(paragraph, i) in article.body"
+              :key="paragraph"
+              class="text-[17px] leading-8 text-graphite/80"
+              :class="i === 0 ? 'first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-7xl first-letter:leading-[0.85] first-letter:text-bronze' : ''"
+            >
+              {{ paragraph }}
+            </p>
           </div>
-        </aside>
+          <aside class="lg:sticky lg:top-32 lg:self-start">
+            <div class="border-t-2 border-bronze bg-ivory p-7">
+              <h2 class="font-display text-2xl font-medium">Похожие статьи</h2>
+              <ul class="mt-5 grid">
+                <li v-for="item in related" :key="item.slug" class="border-t border-line first:border-t-0">
+                  <NuxtLink :to="`/blog/${item.slug}`" class="block py-4 text-[15px] font-semibold leading-6 text-graphite transition hover:text-bronze">
+                    {{ item.title }}
+                  </NuxtLink>
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
     <ConsultationFormSection />

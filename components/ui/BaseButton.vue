@@ -45,7 +45,7 @@ import { LoaderCircle } from 'lucide-vue-next'
 const props = withDefaults(
   defineProps<{
     href?: string
-    variant?: 'primary' | 'secondary' | 'ghost' | 'dark'
+    variant?: 'primary' | 'secondary' | 'ghost' | 'dark' | 'light'
     size?: 'sm' | 'md' | 'lg'
     type?: 'button' | 'submit'
     icon?: string
@@ -69,16 +69,17 @@ const isExternal = computed(() =>
 
 const classes = computed(() => {
   const base =
-    'inline-flex min-w-0 max-w-full items-center justify-center gap-2 rounded-xl text-center font-semibold leading-snug transition duration-200 disabled:cursor-not-allowed disabled:opacity-60 [&_svg]:shrink-0'
+    'group inline-flex min-w-0 max-w-full items-center justify-center gap-2.5 rounded-sm text-center font-semibold leading-snug tracking-wide transition duration-300 disabled:cursor-not-allowed disabled:opacity-60 [&_svg]:shrink-0 [&_svg]:transition-transform [&_svg]:duration-300'
   const sizes = {
-    sm: 'min-h-10 px-3 text-sm sm:px-4',
-    md: 'min-h-11 px-4 text-sm sm:min-h-12 sm:px-5',
-    lg: 'min-h-12 px-5 text-sm sm:min-h-14 sm:px-7 sm:text-base',
+    sm: 'min-h-10 px-4 text-[13px] sm:px-5',
+    md: 'min-h-12 px-5 text-sm sm:px-6',
+    lg: 'min-h-12 px-6 text-sm sm:min-h-14 sm:px-8 sm:text-[15px]',
   }
   const variants = {
-    primary: 'bg-bronze text-white shadow-soft hover:bg-[#1644B0] active:scale-[0.98]',
-    secondary: 'border border-bronze/40 bg-white text-graphite hover:border-bronze hover:bg-[#EBF2FF] active:scale-[0.98]',
-    ghost: 'border border-transparent text-bronze hover:border-bronze/30 hover:bg-bronze/10',
+    primary: 'bg-bronze text-white hover:bg-[#93703D] active:scale-[0.98] hover:[&_svg]:translate-x-0.5',
+    secondary: 'border border-graphite/20 bg-transparent text-graphite hover:border-graphite hover:bg-graphite hover:text-white active:scale-[0.98]',
+    ghost: '!min-h-0 !px-0 text-bronze hover:text-graphite hover:[&_svg]:translate-x-1',
+    light: 'border border-white/25 bg-transparent text-white hover:border-white hover:bg-white hover:text-graphite active:scale-[0.98]',
     dark: 'bg-graphite text-white hover:bg-navy active:scale-[0.98]',
   }
 

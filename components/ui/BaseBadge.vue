@@ -1,5 +1,6 @@
 <template>
-  <span class="inline-flex items-center rounded-full border border-bronze/30 bg-bronze/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-bronze">
+  <span class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-eyebrow text-bronze">
+    <span class="h-1.5 w-1.5 rotate-45 bg-bronze" aria-hidden="true" />
     <slot />
   </span>
 </template>

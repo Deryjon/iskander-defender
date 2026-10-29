@@ -1,16 +1,22 @@
 <template>
   <div>
-    <section class="dark-panel">
-      <div class="container-page py-20 lg:py-28">
-        <BaseBadge>Кейсы</BaseBadge>
-        <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">Практические сценарии защиты</h1>
-        <p class="mt-6 max-w-3xl text-xl leading-9 text-white/72">Фильтруйте примеры по направлениям, чтобы увидеть подход к разным категориям дел.</p>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Кейсы"
+      title="Практические сценарии защиты"
+      text="Примеры по направлениям — без раскрытия персональных данных клиентов."
+      :crumbs="[{ label: 'Кейсы' }]"
+    />
     <section class="section-padding bg-ivory">
       <div class="container-page">
-        <div class="flex flex-wrap gap-2">
-          <button v-for="filter in filters" :key="filter.value" :class="filterClasses(filter.value)" @click="active = filter.value">
+        <div class="flex gap-2 overflow-x-auto pb-1" role="tablist" aria-label="Фильтр по направлению">
+          <button
+            v-for="filter in filters"
+            :key="filter.value"
+            role="tab"
+            :aria-selected="active === filter.value"
+            :class="filterClasses(filter.value)"
+            @click="active = filter.value"
+          >
             {{ filter.label }}
           </button>
         </div>
@@ -38,8 +44,8 @@ const active = ref<(typeof filters)[number]['value']>('all')
 const filteredCases = computed(() => (active.value === 'all' ? cases : cases.filter((item) => item.category === active.value as ServiceKey)))
 const filterClasses = (value: string) =>
   [
-    'rounded-xl px-4 py-2 text-sm font-semibold transition',
-    active.value === value ? 'bg-graphite text-white' : 'border border-line bg-white text-graphite hover:border-bronze',
+    'shrink-0 rounded-sm px-5 py-2.5 text-sm font-semibold transition',
+    active.value === value ? 'bg-graphite text-white' : 'border border-line bg-paper text-graphite hover:border-graphite',
   ].join(' ')
 
 usePageSeo({

@@ -1,52 +1,55 @@
-﻿<template>
-  <section id="contacts" class="section-padding bg-white">
+<template>
+  <section id="contacts" class="section-padding bg-ivory">
     <div class="container-page">
       <SectionTitle
+        :index="index"
         eyebrow="Контакты"
-        title="Связь с адвокатской фирмой и локация"
-        text="Выберите удобный канал связи: телефон, мессенджеры или электронная почта."
+        title="Приходите или свяжитесь удобным способом"
+        text="Телефон, мессенджеры или электронная почта — отвечаем на всех каналах."
+        aside
       />
-      <div class="mt-10 grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
-        <BaseCard class="p-5 sm:p-7">
-          <ul class="grid gap-5 text-sm leading-7 text-steel">
-            <li>
-              <p class="text-xs uppercase tracking-[0.16em] text-bronze">Телефон</p>
-              <a :href="contacts.phoneHref" class="mt-1 block break-words text-base font-semibold text-graphite hover:text-navy sm:text-lg">{{ contacts.phone }}</a>
-            </li>
-            <li>
-              <p class="text-xs uppercase tracking-[0.16em] text-bronze">Email</p>
-              <a :href="`mailto:${contacts.email}`" class="mt-1 block break-words text-base font-semibold text-graphite hover:text-navy sm:text-lg">{{ contacts.email }}</a>
-            </li>
-            <li>
-              <p class="text-xs uppercase tracking-[0.16em] text-bronze">Адрес</p>
-              <p class="mt-1 text-base text-graphite">{{ contacts.address }}</p>
-            </li>
-            <li>
-              <p class="text-xs uppercase tracking-[0.16em] text-bronze">График работы</p>
-              <p class="mt-1 text-base text-graphite">{{ contacts.schedule }}</p>
-            </li>
-          </ul>
-          <div class="mt-6 grid gap-3 sm:flex sm:flex-wrap">
+      <div class="mt-14 grid border border-line bg-paper lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="p-7 sm:p-10">
+          <dl class="grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            <div v-for="item in items" :key="item.label" class="min-w-0">
+              <dt class="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-bronze">
+                <component :is="item.icon" class="h-3.5 w-3.5" aria-hidden="true" />
+                {{ item.label }}
+              </dt>
+              <dd class="mt-2.5">
+                <a v-if="item.href" :href="item.href" class="link-underline break-words font-display text-xl font-medium text-graphite sm:text-2xl">{{ item.value }}</a>
+                <span v-else class="text-[15px] leading-7 text-graphite">{{ item.value }}</span>
+              </dd>
+            </div>
+          </dl>
+          <div class="mt-10 flex flex-col gap-3 border-t border-line pt-8 sm:flex-row">
             <BaseButton :href="contacts.telegram" variant="secondary" class="w-full sm:w-auto" :icon-component="Send">Telegram</BaseButton>
             <BaseButton :href="contacts.whatsapp" variant="secondary" class="w-full sm:w-auto" :icon-component="MessageCircleMore">WhatsApp</BaseButton>
           </div>
-        </BaseCard>
+        </div>
 
-        <BaseCard class="overflow-hidden p-0">
-          <iframe
-            :src="contacts.mapEmbed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            class="h-72 w-full border-0 sm:h-[380px]"
-            title="Карта расположения офиса Iskander-Defender"
-          />
-        </BaseCard>
+        <iframe
+          :src="contacts.mapEmbed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-80 w-full border-0 grayscale-[60%] lg:h-full lg:min-h-[440px]"
+          title="Карта расположения офиса Iskander-Defender"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { MessageCircleMore, Send } from 'lucide-vue-next'
+import { Clock3, Mail, MapPin, MessageCircleMore, Phone, Send } from 'lucide-vue-next'
 import { contacts } from '~/data/landing'
+
+withDefaults(defineProps<{ index?: string }>(), { index: '08' })
+
+const items = [
+  { label: 'Телефон', value: contacts.phone, href: contacts.phoneHref, icon: Phone },
+  { label: 'Email', value: contacts.email, href: `mailto:${contacts.email}`, icon: Mail },
+  { label: 'Адрес', value: contacts.address, icon: MapPin },
+  { label: 'График работы', value: contacts.schedule, icon: Clock3 },
+]
 </script>

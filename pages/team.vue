@@ -1,14 +1,13 @@
 <template>
   <div>
-    <section class="dark-panel">
-      <div class="container-page py-20 lg:py-28">
-        <BaseBadge>Команда</BaseBadge>
-        <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">Адвокаты и юристы Iskander-Defender</h1>
-        <p class="mt-6 max-w-3xl text-xl leading-9 text-white/72">Карточки специалистов готовы к расширению detail-modal, календаря записи и профилей на нескольких языках.</p>
-      </div>
-    </section>
+    <PageHero
+      eyebrow="Команда"
+      title="Адвокаты Iskander-Defender"
+      text="Каждое дело ведётся лично партнёром — с профильным опытом и персональной ответственностью за результат."
+      :crumbs="[{ label: 'Команда' }]"
+    />
     <section class="section-padding bg-ivory">
-      <div class="container-page grid gap-6 md:grid-cols-2">
+      <div class="container-page grid gap-14 md:grid-cols-2">
         <LawyerCard v-for="lawyer in lawyers" :key="lawyer.name" :lawyer="lawyer" />
       </div>
     </section>

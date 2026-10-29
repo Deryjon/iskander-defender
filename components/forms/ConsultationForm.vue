@@ -38,10 +38,10 @@
       Согласен на обработку персональных данных
     </BaseCheckbox>
 
-    <p v-if="submitState === 'success'" class="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+    <p v-if="submitState === 'success'" class="rounded-sm border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
       {{ successMessage }}
     </p>
-    <p v-if="submitState === 'error'" class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+    <p v-if="submitState === 'error'" class="rounded-sm border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
       {{ submitError }}
     </p>
 

@@ -1,60 +1,70 @@
 <template>
   <div v-if="service">
-    <section class="dark-panel">
-      <div class="container-page py-20 lg:py-28">
-        <BaseBadge>Практика</BaseBadge>
-        <h1 class="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-6xl">{{ service.title }}</h1>
-        <p class="mt-6 max-w-3xl text-xl leading-9 text-white/72">{{ service.description }}</p>
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <BaseButton href="#consultation" size="lg" icon="lucide:send">Получить консультацию</BaseButton>
-          <BaseButton href="/cases" size="lg" variant="secondary" icon="lucide:folder-open">Кейсы</BaseButton>
-        </div>
-      </div>
-    </section>
-    <section class="section-padding bg-white">
-      <div class="container-page grid gap-10 lg:grid-cols-2">
+    <PageHero
+      eyebrow="Практика"
+      :title="service.title"
+      :text="service.description"
+      :crumbs="[{ label: 'Услуги', to: '/services' }, { label: service.shortTitle }]"
+    >
+      <template #actions>
+        <BaseButton href="#consultation" size="lg" :icon-component="ArrowRight">Получить консультацию</BaseButton>
+        <BaseButton href="/cases" size="lg" variant="light">Смотреть кейсы</BaseButton>
+      </template>
+    </PageHero>
+
+    <section class="section-padding bg-paper">
+      <div class="container-page grid gap-14 lg:grid-cols-2 lg:gap-20">
         <div>
           <BaseSectionTitle eyebrow="Кому подходит" title="Когда нужна помощь" />
-          <ul class="mt-8 grid gap-3">
-            <li v-for="item in service.suitableFor" :key="item" class="flex gap-3 rounded-2xl border border-line bg-ivory p-4">
-              <Icon name="lucide:check" class="mt-1 h-5 w-5 shrink-0 text-bronze" />
-              <span>{{ item }}</span>
+          <ul class="mt-10 border-t border-line">
+            <li v-for="item in service.suitableFor" :key="item" class="flex items-start gap-4 border-b border-line py-5">
+              <Check class="mt-1 h-4 w-4 shrink-0 text-bronze" aria-hidden="true" />
+              <span class="text-[15px] font-medium text-graphite">{{ item }}</span>
             </li>
           </ul>
         </div>
         <div>
           <BaseSectionTitle eyebrow="Вопросы" title="С чем работаем" />
-          <div class="mt-8 flex flex-wrap gap-3">
-            <span v-for="item in service.services" :key="item" class="rounded-full border border-line bg-ivory px-4 py-2 text-sm font-semibold">{{ item }}</span>
+          <div class="mt-10 flex flex-wrap gap-2.5">
+            <span v-for="item in service.services" :key="item" class="border border-line bg-ivory px-4 py-2.5 text-sm font-medium text-graphite">{{ item }}</span>
           </div>
         </div>
       </div>
     </section>
-    <section class="section-padding bg-ivory">
+
+    <section class="grain section-padding relative overflow-hidden bg-graphite text-white">
       <div class="container-page">
-        <BaseSectionTitle eyebrow="Процесс" title="Как проходит работа" />
-        <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          <div v-for="(step, index) in service.workflow" :key="step" class="rounded-2xl border border-line bg-white p-5">
-            <p class="font-display text-3xl font-extrabold text-bronze">{{ index + 1 }}</p>
-            <p class="mt-3 font-semibold">{{ step }}</p>
-          </div>
-        </div>
+        <SectionTitle eyebrow="Процесс" title="Как проходит работа" variant="light" />
+        <ol class="relative mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
+          <div class="absolute left-0 right-0 top-[11px] hidden h-px bg-white/15 lg:block" aria-hidden="true" />
+          <li v-for="(step, index) in service.workflow" :key="step" class="relative lg:pr-8">
+            <div class="flex items-center gap-4">
+              <span class="relative z-10 h-[23px] w-[23px] shrink-0 rounded-full border border-brass bg-graphite p-[5px]">
+                <span class="block h-full w-full rounded-full bg-brass" />
+              </span>
+              <span class="font-display text-lg italic text-brass">Шаг {{ index + 1 }}</span>
+            </div>
+            <p class="mt-6 font-display text-2xl font-medium leading-tight">{{ step }}</p>
+          </li>
+        </ol>
       </div>
     </section>
-    <section class="section-padding bg-white">
+
+    <section v-if="serviceCases.length" class="section-padding bg-ivory">
       <div class="container-page">
         <BaseSectionTitle eyebrow="Кейсы" title="Практика по направлению" />
-        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
           <CaseCard v-for="item in serviceCases" :key="item.title" :legal-case="item" />
         </div>
       </div>
     </section>
-    <FAQSection :items="service.faq" />
+    <FAQSection :items="service.faq" index="" />
     <ConsultationFormSection />
   </div>
 </template>
 
 <script setup lang="ts">
+import { ArrowRight, Check } from 'lucide-vue-next'
 import { cases } from '~/data/cases'
 import { getService, services } from '~/data/services'
 import { breadcrumbSchema, faqSchema, serviceSchema } from '~/utils/schema'

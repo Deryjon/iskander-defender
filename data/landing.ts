@@ -14,12 +14,12 @@
 export const brandName = 'Iskander-Defender'
 
 export const navigationAnchors: NavAnchor[] = [
-  { label: 'Услуги', href: '#services' },
-  { label: 'Преимущества', href: '#benefits' },
-  { label: 'Кейсы', href: '#cases' },
-  { label: 'Команда', href: '#team' },
-  { label: 'FAQ', href: '#faq' },
-  { label: 'Контакты', href: '#contacts' },
+  { label: 'Услуги', href: '/#services' },
+  { label: 'Преимущества', href: '/#benefits' },
+  { label: 'Кейсы', href: '/#cases' },
+  { label: 'Команда', href: '/#team' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Контакты', href: '/#contacts' },
 ]
 
 export const heroStats: HeroStat[] = [

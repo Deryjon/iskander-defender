@@ -1,24 +1,29 @@
-﻿<template>
-  <article class="rounded-2xl border border-line/80 bg-white/80 backdrop-blur-sm">
+<template>
+  <article class="border-b border-line">
     <button
-      class="flex w-full items-start justify-between gap-4 px-4 py-4 text-left sm:px-6"
+      class="group flex w-full items-start justify-between gap-6 py-6 text-left"
       type="button"
       :aria-expanded="open"
       @click="open = !open"
     >
-      <span class="text-mobile-safe font-display text-base font-bold text-graphite sm:text-lg">{{ props.question }}</span>
-      <ChevronDown class="mt-0.5 h-5 w-5 shrink-0 text-bronze transition-transform duration-300" :class="open ? 'rotate-180' : ''" />
+      <span class="text-mobile-safe font-display text-xl font-medium leading-snug text-graphite transition group-hover:text-bronze sm:text-2xl">{{ props.question }}</span>
+      <span
+        class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition duration-300"
+        :class="open ? 'rotate-45 border-bronze bg-bronze text-white' : 'border-line text-bronze group-hover:border-bronze'"
+      >
+        <Plus class="h-4 w-4" />
+      </span>
     </button>
-    <Transition name="faq">
-      <div v-if="open" class="px-4 pb-5 sm:px-6 sm:pb-6">
-        <p class="text-sm leading-7 text-steel sm:text-base">{{ props.answer }}</p>
+    <div class="grid transition-[grid-template-rows] duration-300 ease-out" :class="open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+      <div class="overflow-hidden">
+        <p class="max-w-2xl pb-6 text-[15px] leading-7 text-steel">{{ props.answer }}</p>
       </div>
-    </Transition>
+    </div>
   </article>
 </template>
 
 <script setup lang="ts">
-import { ChevronDown } from 'lucide-vue-next'
+import { Plus } from 'lucide-vue-next'
 
 const props = withDefaults(
   defineProps<{
@@ -33,16 +38,3 @@ const props = withDefaults(
 
 const open = ref(props.initiallyOpen)
 </script>
-
-<style scoped>
-.faq-enter-active,
-.faq-leave-active {
-  transition: all 0.25s ease;
-}
-
-.faq-enter-from,
-.faq-leave-to {
-  opacity: 0;
-  transform: translateY(-4px);
-}
-</style>

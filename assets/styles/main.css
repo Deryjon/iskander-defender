@@ -5,12 +5,23 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-ivory font-sans text-graphite antialiased;
-    background-image: radial-gradient(circle at top right, rgba(30, 86, 217, 0.06), transparent 42%);
+    font-feature-settings: 'ss01', 'cv11';
     overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  .font-display {
+    font-variant-numeric: lining-nums;
   }
 
   ::selection {
@@ -22,7 +33,7 @@
   }
 
   section[id] {
-    scroll-margin-top: 110px;
+    scroll-margin-top: 88px;
   }
 }
 
@@ -32,38 +43,64 @@
   }
 
   .section-padding {
-    @apply py-14 sm:py-20 lg:py-28;
+    @apply py-16 sm:py-24 lg:py-32;
   }
 
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.2em] text-bronze;
+    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-eyebrow text-bronze;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-8 bg-current;
   }
 
   .premium-card {
-    @apply rounded-2xl border border-line bg-white shadow-soft;
+    @apply border border-line bg-paper;
   }
 
   .dark-panel {
     @apply bg-graphite text-white;
   }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .grain {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 }
 
 @layer utilities {
   .text-mobile-safe {
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     word-break: normal;
   }
 }
 
 @media (max-width: 639px) {
   .dark-panel h1 {
-    font-size: 2rem;
-    line-height: 1.15;
-    overflow-wrap: anywhere;
-  }
-
-  .dark-panel p {
-    font-size: 1rem;
-    line-height: 1.75rem;
+    font-size: 2.25rem;
+    line-height: 1.1;
   }
 }

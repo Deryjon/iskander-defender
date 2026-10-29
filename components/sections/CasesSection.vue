@@ -1,29 +1,32 @@
-﻿<template>
-  <section class="section-padding bg-white" id="cases">
+<template>
+  <section id="cases" class="section-padding bg-paper">
     <div class="container-page">
       <SectionTitle
+        index="05"
         eyebrow="Кейсы"
         title="Практические результаты по разным категориям дел"
-        text="Работаем без раскрытия персональных данных и соблюдаем строгую конфиденциальность клиентов."
+        text="Публикуем без раскрытия персональных данных — конфиденциальность клиентов для нас безусловна."
+        aside
       />
-      <div class="mt-10 grid gap-6 lg:grid-cols-3">
-        <BaseCard v-for="item in cases" :key="`${item.category}-${item.situation}`" class="p-6">
+      <div class="mt-14 grid gap-6 lg:grid-cols-3">
+        <article
+          v-for="item in cases"
+          :key="`${item.category}-${item.situation}`"
+          class="group flex flex-col border border-line bg-ivory/60 p-7 transition duration-500 hover:-translate-y-1 hover:border-bronze/40 hover:bg-paper hover:shadow-soft sm:p-8"
+        >
           <BaseBadge>{{ item.category }}</BaseBadge>
-          <dl class="mt-4 grid gap-4 text-sm leading-7">
-            <div>
-              <dt class="font-semibold text-graphite">Ситуация</dt>
-              <dd class="text-steel">{{ item.situation }}</dd>
+          <h3 class="mt-6 font-display text-2xl font-medium leading-snug text-graphite">{{ item.situation }}</h3>
+          <div class="mt-6 border-t border-line pt-5">
+            <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-steel">Что сделали</p>
+            <p class="mt-2 text-sm leading-7 text-steel">{{ item.actions }}</p>
+          </div>
+          <div class="mt-auto pt-6">
+            <div class="border-l-2 border-bronze bg-paper py-3 pl-4 pr-3 transition group-hover:bg-ivory">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-bronze">Результат</p>
+              <p class="mt-1.5 text-sm font-medium leading-6 text-graphite">{{ item.result }}</p>
             </div>
-            <div>
-              <dt class="font-semibold text-graphite">Что сделали</dt>
-              <dd class="text-steel">{{ item.actions }}</dd>
-            </div>
-            <div class="rounded-lg border border-bronze/20 bg-bronze/5 px-3 py-2.5">
-              <dt class="text-xs font-semibold uppercase tracking-widest text-bronze">Результат</dt>
-              <dd class="mt-1 font-medium text-graphite">{{ item.result }}</dd>
-            </div>
-          </dl>
-        </BaseCard>
+          </div>
+        </article>
       </div>
     </div>
   </section>
