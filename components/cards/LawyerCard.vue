@@ -1,7 +1,7 @@
 <template>
   <article class="group">
     <div class="relative aspect-[4/5] overflow-hidden bg-line">
-      <NuxtImg :src="lawyer.photo" :alt="lawyer.name" class="h-full w-full object-cover object-top grayscale-[35%] transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" loading="lazy" />
+      <NuxtImg :src="lawyer.photo" format="webp" quality="80" width="1047" height="1400" :alt="lawyer.name" class="h-full w-full object-cover object-top grayscale-[35%] transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" loading="lazy" />
       <span class="absolute left-5 top-5 bg-graphite/80 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-brass backdrop-blur-sm">
         {{ lawyer.experience }}
       </span>

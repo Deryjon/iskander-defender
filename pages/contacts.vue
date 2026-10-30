@@ -16,7 +16,7 @@ import { contacts } from '~/data/landing'
 import { localBusinessSchema } from '~/utils/schema'
 
 usePageSeo({
-  title: 'Контакты адвокатской фирмы в Ташкенте — Iskander-Defender',
+  title: 'Контакты адвоката в Ташкенте',
   description:
     'Адрес: г. Ташкент, ул. Алишера Навои, 5. Телефон: +998 98 364 83 94. Email: office@iskander-defender.uz. Режим работы: Пн-Сб 09:00–19:00.',
   keywords:

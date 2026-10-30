@@ -54,7 +54,7 @@ const principles = [
 ]
 
 usePageSeo({
-  title: 'О фирме',
+  title: 'Об адвокатской фирме в Ташкенте',
   description: 'История, миссия, ценности и философия работы адвокатской фирмы Iskander-Defender.',
   path: '/about',
 })

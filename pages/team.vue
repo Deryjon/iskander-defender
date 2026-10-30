@@ -23,7 +23,7 @@ const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl as string
 
 usePageSeo({
-  title: 'Команда адвокатов в Ташкенте — Iskander-Defender',
+  title: 'Адвокаты фирмы в Ташкенте',
   description:
     'Команда опытных адвокатов Iskander-Defender: 35+ и 30+ лет практики. Специализация: уголовное, гражданское, административное право. Ташкент, Узбекистан.',
   keywords:

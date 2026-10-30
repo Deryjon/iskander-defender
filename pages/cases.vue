@@ -49,7 +49,7 @@ const filterClasses = (value: string) =>
   ].join(' ')
 
 usePageSeo({
-  title: 'Кейсы',
+  title: 'Кейсы и результаты по делам',
   description: 'Примеры гражданских, уголовных и административных дел Iskander-Defender без раскрытия конфиденциальной информации.',
   path: '/cases',
 })

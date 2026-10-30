@@ -139,14 +139,14 @@ export const team: TeamMember[] = [
     position: 'Управляющий партнер',
     specialization: 'Уголовная защита, коммерческие и гражданские споры',
     experience: '35+ лет практики',
-    image: '/images/ilhomjon.PNG',
+    image: '/images/ilhomjon.jpg',
   },
   {
     name: 'Юсупова Маргуба Муминовна',
     position: 'Старший партнер',
     specialization: 'Гражданское право, семейные и наследственные дела',
     experience: '30+ лет практики',
-    image: '/images/marguba.PNG',
+    image: '/images/marguba.jpg',
   },
 ]
 

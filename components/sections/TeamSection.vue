@@ -13,6 +13,11 @@
           <div class="relative aspect-[4/5] overflow-hidden bg-line">
             <NuxtImg
               v-if="member.image"
+              format="webp"
+              quality="80"
+              width="1047"
+              height="1400"
+              loading="lazy"
               :src="member.image"
               :alt="member.name"
               class="h-full w-full object-cover object-top grayscale-[35%] transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"

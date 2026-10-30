@@ -21,11 +21,11 @@ import { localBusinessSchema, personSchema } from '~/utils/schema'
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl as string
 const canonical = `${siteUrl}/`
-const ogImage = `${siteUrl}/og-image.svg`
+const ogImage = `${siteUrl}/og-image.png`
 
-const pageTitle = 'Адвокат в Ташкенте — Юридические услуги | Iskander-Defender'
+const pageTitle = 'Адвокат в Ташкенте — юридические услуги'
 const pageDescription =
-  'Адвокатская фирма Iskander-Defender в Ташкенте. Гражданские, уголовные и административные дела. 10+ лет практики, 5000+ клиентов. Консультация в день обращения. Тел: +998 98 364 83 94'
+  'Адвокатская фирма в Ташкенте: гражданские, уголовные и административные дела. 10+ лет практики, 5000+ клиентов. Консультация в день обращения.'
 const pageKeywords =
   'адвокат Ташкент, юридические услуги Ташкент, адвокат Узбекистан, адвокатская фирма Ташкент, юридическая помощь Ташкент, уголовный адвокат Ташкент, гражданский адвокат Ташкент, административный адвокат Ташкент, юрист Ташкент, правовая защита Ташкент, Iskander-Defender, адвокат онлайн Узбекистан, консультация адвоката Ташкент'
 
@@ -36,6 +36,10 @@ useSeoMeta({
   ogTitle: pageTitle,
   ogDescription: pageDescription,
   ogImage,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Iskander-Defender — адвокатская фирма в Ташкенте',
+  ogLocale: 'ru_RU',
   ogType: 'website',
   ogUrl: canonical,
   ogSiteName: 'Iskander-Defender',
@@ -130,11 +134,6 @@ useHead({
             name: 'Iskander-Defender',
             description: 'Адвокатская фирма в Ташкенте, Узбекистан',
             inLanguage: ['ru', 'uz', 'en'],
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: { '@type': 'EntryPoint', urlTemplate: `${siteUrl}/blog?q={search_term_string}` },
-              'query-input': 'required name=search_term_string',
-            },
           },
           {
             '@type': 'FAQPage',

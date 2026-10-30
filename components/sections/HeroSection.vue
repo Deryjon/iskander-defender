@@ -42,7 +42,13 @@
         <div class="absolute -right-3 -top-3 bottom-10 left-10 border border-brass/40 sm:-right-5 sm:-top-5" aria-hidden="true" />
         <div class="relative overflow-hidden bg-charcoal">
           <NuxtImg
-            src="/images/ilhomjon.PNG"
+            src="/images/ilhomjon.jpg"
+            width="1047"
+            height="1400"
+            format="webp"
+            quality="80"
+            fetchpriority="high"
+            preload
             alt="Юсупов Ильхомжон Кубижонович, управляющий партнер"
             class="aspect-[4/5] w-full object-cover object-top"
             sizes="sm:100vw md:60vw lg:520px"

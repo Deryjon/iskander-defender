@@ -17,7 +17,7 @@ import { faqItems } from '~/data/faq'
 import { faqSchema } from '~/utils/schema'
 
 usePageSeo({
-  title: 'FAQ',
+  title: 'Частые вопросы об услугах адвоката',
   description: 'Частые вопросы о консультациях, документах, оплате, суде и конфиденциальности.',
   path: '/faq',
   schema: faqSchema(faqItems),

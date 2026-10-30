@@ -87,7 +87,7 @@ const keywordsMap: Record<string, string> = {
 }
 
 usePageSeo({
-  title: `${service.value.title} — Адвокат в Ташкенте | Iskander-Defender`,
+  title: `${service.value.title} — адвокат в Ташкенте`,
   description: `${service.value.description} Iskander-Defender — адвокатская фирма в Ташкенте, Узбекистан.`,
   keywords: keywordsMap[service.value.key] || `адвокат Ташкент, ${service.value.title.toLowerCase()}, юридические услуги Узбекистан`,
   path: service.value.href,

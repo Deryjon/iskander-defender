@@ -11,8 +11,8 @@ export const usePageSeo = (options: {
   schema?: Record<string, unknown> | Record<string, unknown>[]
 }) => {
   const config = useRuntimeConfig()
-  const url = `${config.public.siteUrl}${options.path || useRoute().path}`
-  const image = options.image || `${config.public.siteUrl}/og-image.svg`
+  const url = `${config.public.siteUrl}${options.path ?? useRoute().path}`
+  const image = options.image || `${config.public.siteUrl}/og-image.png`
 
   useSeoMeta({
     title: options.title,
@@ -22,6 +22,10 @@ export const usePageSeo = (options: {
     ogDescription: options.description,
     ogUrl: url,
     ogImage: image,
+    ogImageWidth: options.image ? undefined : 1200,
+    ogImageHeight: options.image ? undefined : 630,
+    ogLocale: 'ru_RU',
+    ogSiteName: 'Iskander-Defender',
     ogType: (options.ogType as 'website' | 'article') || 'website',
     twitterCard: 'summary_large_image',
     twitterTitle: options.title,

@@ -42,21 +42,30 @@ export default defineNuxtConfig({
         { name: 'robots', content: 'index, follow' },
         { property: 'og:site_name', content: 'Iskander-Defender' },
         { property: 'og:locale', content: 'ru_RU' },
-        { property: 'og:locale:alternate', content: 'uz_UZ' },
-        { property: 'og:locale:alternate', content: 'en_US' },
+        { name: 'theme-color', content: '#11151B' },
+        { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        // Non-blocking font stylesheet: loads as print, switches to all once fetched.
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap',
+          media: 'print',
+          onload: "this.media='all'",
         },
       ],
     },
   },
   runtimeConfig: {
+    telegramBotToken: '',
+    telegramChatId: '',
     public: {
       siteUrl,
       apiBase: process.env.NUXT_PUBLIC_API_BASE || '',
@@ -64,6 +73,22 @@ export default defineNuxtConfig({
   },
   site: {
     url: siteUrl,
+    name: 'Iskander-Defender',
+  },
+  nitro: {
+    compressPublicAssets: { gzip: true, brotli: true },
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/robots.txt'],
+      // Images are optimized on demand at runtime; prerendering them would make
+      // the build depend on fetching remote (Unsplash) images.
+      ignore: ['/_ipx'],
+    },
+  },
+  routeRules: {
+    '/images/**': { headers: { 'cache-control': 'public, max-age=2592000, stale-while-revalidate=86400' } },
+    '/_ipx/**': { headers: { 'cache-control': 'public, max-age=2592000, stale-while-revalidate=86400' } },
+    '/api/**': { prerender: false, headers: { 'cache-control': 'no-store' } },
   },
   i18n: {
     strategy: 'prefix_except_default',
@@ -71,11 +96,10 @@ export default defineNuxtConfig({
     bundle: {
       optimizeTranslationDirective: false,
     },
-    locales: [
-      { code: 'ru', name: 'Русский', file: 'ru.json' },
-      { code: 'uz', name: "O‘zbekcha", file: 'uz.json' },
-      { code: 'en', name: 'English', file: 'en.json' },
-    ],
+    baseUrl: siteUrl,
+    // uz/en are disabled until real translations exist: they rendered Russian copies
+    // under /uz and /en, which search engines treat as duplicate content.
+    locales: [{ code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru.json' }],
     langDir: 'locales',
     detectBrowserLanguage: false,
   },

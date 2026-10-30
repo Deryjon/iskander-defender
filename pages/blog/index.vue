@@ -19,7 +19,7 @@
 import { articles } from '~/data/articles'
 
 usePageSeo({
-  title: 'Блог',
+  title: 'Юридический блог',
   description: 'Полезные юридические статьи Iskander-Defender о консультациях, защите, документах и судебных сценариях.',
   path: '/blog',
 })

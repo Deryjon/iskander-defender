@@ -11,7 +11,7 @@
     </PageHero>
     <section class="bg-paper pb-16 sm:pb-24 lg:pb-32">
       <div class="container-page">
-        <NuxtImg :src="article.cover" :alt="article.title" class="relative -mt-px aspect-[21/9] w-full object-cover" />
+        <NuxtImg :src="article.cover" format="webp" quality="75" width="1280" height="549" sizes="sm:100vw lg:1280px" fetchpriority="high" preload :alt="article.title" class="relative -mt-px aspect-[21/9] w-full object-cover" />
         <div class="mt-14 grid gap-14 lg:grid-cols-[minmax(0,720px)_1fr] lg:gap-20">
           <div class="grid gap-6">
             <p
@@ -88,7 +88,7 @@ usePageSeo({
         url: siteUrl,
         logo: {
           '@type': 'ImageObject',
-          url: `${siteUrl}/favicon-16.png`,
+          url: `${siteUrl}/icon-512.png`,
         },
       },
       mainEntityOfPage: {

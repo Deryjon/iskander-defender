@@ -33,7 +33,7 @@
         <div class="relative mx-auto w-full max-w-md lg:max-w-none">
           <div class="absolute -right-3 -top-3 bottom-10 left-10 border border-brass/40 sm:-right-5 sm:-top-5" aria-hidden="true" />
           <div class="relative overflow-hidden bg-charcoal">
-            <NuxtImg :src="landing.image" :alt="landing.title" class="aspect-[4/5] w-full object-cover lg:aspect-[5/6]" preload />
+            <NuxtImg :src="landing.image" format="webp" quality="75" width="800" height="1000" sizes="sm:100vw md:60vw lg:560px" fetchpriority="high" :alt="landing.title" class="aspect-[4/5] w-full object-cover lg:aspect-[5/6]" preload />
             <div class="absolute inset-0 bg-gradient-to-t from-graphite via-graphite/10 to-transparent" aria-hidden="true" />
             <p class="absolute inset-x-0 bottom-0 p-6 font-display text-xl leading-snug text-white/90 sm:p-8 sm:text-2xl">
               Юридическая позиция строится на фактах, сроках, доказательствах и реальном интересе клиента.

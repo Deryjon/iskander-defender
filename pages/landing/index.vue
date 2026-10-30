@@ -15,7 +15,7 @@
           class="group flex flex-col border border-line bg-paper transition duration-500 hover:border-bronze/40 hover:shadow-soft"
         >
           <div class="aspect-[16/10] overflow-hidden bg-line">
-            <NuxtImg :src="landing.image" :alt="landing.title" class="h-full w-full object-cover grayscale-[30%] transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" loading="lazy" />
+            <NuxtImg :src="landing.image" format="webp" quality="75" width="800" height="500" sizes="sm:100vw md:50vw lg:400px" :alt="landing.title" class="h-full w-full object-cover grayscale-[30%] transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0" loading="lazy" />
           </div>
           <div class="flex flex-1 flex-col p-7">
             <BaseBadge>{{ landing.badge }}</BaseBadge>

@@ -1,19 +1,25 @@
-﻿interface ConsultationRequestPayload {
+interface ConsultationRequestPayload {
   name: string
   phone: string
   caseType: 'civil' | 'criminal' | 'administrative'
   message: string
   consent: boolean
+  website?: string
 }
 
 export const useConsultationRequest = () => {
-  const submitRequest = async (_payload: ConsultationRequestPayload) => {
-    // TODO: replace with backend API call when endpoint is ready.
-    await new Promise((resolve) => setTimeout(resolve, 900))
+  const config = useRuntimeConfig()
+  const route = useRoute()
 
-    return {
-      success: true,
-      message: 'Заявка принята. Мы свяжемся с вами в ближайшее время.',
+  const submitRequest = async (payload: ConsultationRequestPayload) => {
+    try {
+      return await $fetch<{ success: boolean; message: string }>(`${config.public.apiBase}/api/leads/consultation`, {
+        method: 'POST',
+        body: { ...payload, page: route.fullPath },
+      })
+    } catch (error) {
+      const message = (error as { data?: { data?: { message?: string } } }).data?.data?.message
+      return { success: false, message: message || '' }
     }
   }
 

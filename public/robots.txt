@@ -3,5 +3,6 @@ Allow: /
 Disallow: /thanks
 Disallow: /privacy-policy
 Disallow: /terms
+Disallow: /api/
 
-Sitemap: https://iskander-defender.uz/sitemap.xml
+Sitemap: https://iskander-defender.uz/sitemap_index.xml

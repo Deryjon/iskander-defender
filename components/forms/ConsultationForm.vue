@@ -1,5 +1,5 @@
 ﻿<template>
-  <form class="grid gap-4" novalidate @submit.prevent="onSubmit">
+  <form class="relative grid gap-4" novalidate @submit.prevent="onSubmit">
     <BaseInput
       :model-value="values.name"
       label="Имя"
@@ -33,6 +33,10 @@
       :error="errors.message"
       @update:model-value="setFieldValue('message', $event)"
     />
+
+    <div class="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+      <label>Сайт <input v-model="website" type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
 
     <BaseCheckbox :model-value="values.consent" :error="errors.consent" @update:model-value="setFieldValue('consent', $event)">
       Согласен на обработку персональных данных
@@ -91,6 +95,9 @@ const { values, errors, setFieldValue, setErrors, handleSubmit, isSubmitting, re
   },
 })
 
+const website = ref('')
+const { track } = useAnalytics()
+
 const submitState = ref<'idle' | 'success' | 'error'>('idle')
 const submitError = ref('')
 const successMessage = ref('')
@@ -145,28 +152,15 @@ const onSubmit = handleSubmit(async (formValues) => {
     return
   }
 
-  try {
-    const response = await submitRequest(parsed.data)
-    if (!response.success) {
-      submitState.value = 'error'
-      submitError.value = 'Не удалось отправить заявку. Попробуйте еще раз или свяжитесь с нами по телефону.'
-      return
-    }
-
-    submitState.value = 'success'
-    successMessage.value = response.message
-    resetForm({
-      values: {
-        name: '',
-        phone: '',
-        caseType: 'civil',
-        message: '',
-        consent: false,
-      },
-    })
-  } catch {
+  const response = await submitRequest({ ...parsed.data, website: website.value })
+  if (!response.success) {
     submitState.value = 'error'
-    submitError.value = 'Сервис временно недоступен. Попробуйте отправить форму позже.'
+    submitError.value = response.message || 'Не удалось отправить заявку. Попробуйте ещё раз или позвоните нам.'
+    return
   }
+
+  track('lead_submit', { caseType: parsed.data.caseType })
+  resetForm()
+  await navigateTo('/thanks')
 })
 </script>
